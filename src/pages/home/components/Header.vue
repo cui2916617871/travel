@@ -9,13 +9,18 @@
         </div>
         
         <div class="header-right">
+            {{this.city}}
             <span class="iconfont arrow-icon">&#xe64a;</span>
         </div>
     </div>
 </template>
 
 <script>
-export default {};
+export default {
+    props:{
+        city:String
+    }
+};
 </script>
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl';
