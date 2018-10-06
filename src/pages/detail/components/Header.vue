@@ -44,7 +44,12 @@ export default {
       }
   },
   activated(){
+    //   在全局对象都有
       window.addEventListener('scroll',this.handleScroll)
+  },
+//   组件隐藏
+  deactivated (){
+      window.removeEventListener('scroll',this.handleScroll)
   }
 };
 </script>
