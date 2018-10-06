@@ -32,6 +32,7 @@ export default {
   methods:{
       handleScroll(){
           const top  = document.documentElement.scrollTop
+          console.log(top)
           if(top > 60){
               let opacity = top / 100
               opacity = opacity > 1?1:opacity
@@ -40,16 +41,22 @@ export default {
           }else{
               this.showAbs = true
           }
-          console.log(document.documentElement.scrollTop)
+          
       }
   },
-  activated(){
-    //   在全局对象都有
-      window.addEventListener('scroll',this.handleScroll)
+//   activated(){
+//     //   在全局对象都有
+//       window.addEventListener('scroll',this.handleScroll)
+//   },
+// //   组件隐藏
+//   deactivated (){
+//       window.removeEventListener('scroll',this.handleScroll)
+//   }
+    mounted () {
+    window.addEventListener('scroll', this.handleScroll)
   },
-//   组件隐藏
-  deactivated (){
-      window.removeEventListener('scroll',this.handleScroll)
+  unmounted () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 };
 </script>
